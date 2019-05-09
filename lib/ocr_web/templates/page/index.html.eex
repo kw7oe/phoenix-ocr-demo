@@ -1,0 +1,14 @@
+<section class="phx-hero">
+  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
+  <p>A productive web framework that<br/>does not compromise speed or maintainability.</p>
+  <%= live_render(@conn, OcrWeb.ClockLive) %>
+</section>
+
+
+<%= form_for @conn, Routes.page_path(@conn, :create),
+                    [multipart: true], fn f-> %>
+    <%= file_input f, :upload, class: "form-control" %>
+    <%= submit "Upload", class: "btn btn-primary" %>
+
+<% end %>
+
