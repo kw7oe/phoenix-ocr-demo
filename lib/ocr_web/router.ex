@@ -22,7 +22,9 @@ defmodule OcrWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", OcrWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", OcrWeb do
+    pipe_through :api
+
+    post "/base64_image", ImageController, :create
+  end
 end
