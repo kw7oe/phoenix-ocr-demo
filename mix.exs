@@ -44,7 +44,8 @@ defmodule Ocr.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:phoenix_live_view, github: "phoenixframework/phoenix_live_view"},
-      {:tesseract_ocr, "~> 0.1.0"}
+      {:tesseract_ocr, "~> 0.1.0"},
+      {:benchee, "~> 1.0", only: :dev}
     ]
   end
 

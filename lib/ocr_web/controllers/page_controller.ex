@@ -7,9 +7,9 @@ defmodule OcrWeb.PageController do
 
   def create(conn, %{"upload" => %Plug.Upload{} = upload}) do
     # With Port
-    result = Ocr.Tesseract.read(upload)
+    # result = Ocr.Tesseract.read(upload)
     # With System
-    # result = TesseractOcr.read(upload.path)
+    result = TesseractOcr.read(upload.path)
     render(conn, "show.html", result: result)
   end
 end

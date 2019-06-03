@@ -18,11 +18,10 @@ defmodule Ocr.Tesseract do
   end
 
   defp spawn_tesseract(file_path) do
-    port = Port.open({:spawn, "tesseract"}, [:binary])
-    send(port, {self(), {:command, "'#{file_path}' result"}})
+    port = Port.open({:spawn, "tesseract '#{file_path}' stdout"}, [:binary])
 
     receive do
-      _ -> File.read!("result.txt")
+      {^port, {:data, result}} -> result
     end
   end
 end
